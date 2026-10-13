@@ -54,8 +54,8 @@ class GameLogic {
 
     }
 
-    checkLine(d, e, f){
-        return d !== null && d == e && e == f;
+    checkLine(a, b, c){
+        return a !== null && a == b && a == c;
     }
 
 
