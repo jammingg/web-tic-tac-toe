@@ -1,7 +1,7 @@
 
 
 class GameLogic {
-    constructor(gameBoard){
+    constructor(gameBoard){        
         this.gameBoard = gameBoard;
         this.currentPlayer = "X";
         this.gemeOver = false;
@@ -17,11 +17,24 @@ class GameLogic {
 
             if (this.checkForWin()){
                 this.gameOver = true;
-                alert(`Player ${this.currentPlayer} wins!`);
+                const timerId = setTimeout(() => {
+                    // console.log("This will not run");
+                    alert(`Player ${this.currentPlayer} wins!`);
+                }, 1);
+
+                // alert(`Player ${this.currentPlayer} wins!`);
+
             } else if (this.checkForDraw()){
+                
                 this.gameOver = true;
-                alert("It's a draw!");
+                const timerId = setTimeout(() => {
+                    // console.log("This will not run");
+                    alert("It's a draw!");
+                }, 1);
+
+                
             } else {
+
                 this.switchPlayer();
                 this.turnCount++;
             }
@@ -30,6 +43,8 @@ class GameLogic {
     }
 
     checkForWin() {
+        
+        // console.log("checkForWin");
         // ---
         for (let r = 0; r < this.gameBoard.rows; r++){
             if (this.checkLine(this.gameBoard.board[r][0], this.gameBoard.board[r][1], this.gameBoard.board[r][2])){
@@ -60,7 +75,8 @@ class GameLogic {
 
 
     checkForDraw(){
-        if (this.turnCount >= 9) return true;
+        // console.log("draw");
+        if (this.turnCount >= 8) return true;
 
         return false;
     }
